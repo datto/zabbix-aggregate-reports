@@ -1,0 +1,8 @@
+reports:
+  provider_traffic:
+    hostgroup: Network
+    application: Provider Interface Traffic
+    hosts: ".*"
+    item: "Ethernet.*PROVIDER:(Provider1|Provider2).*Inbound 5m Traffic"
+    calculation: sum
+    time_range: 30d

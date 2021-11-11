@@ -1,0 +1,38 @@
+reports:
+  provider_traffic:
+    hostgroup: Network
+    application: Provider Interface Traffic
+    aggregation:
+      sum_items: true
+      type: item_regex
+      pattern: '.*PROVIDER:(\w+).*'
+      ignore_case: true
+    hosts: ".*"
+    item: "Ethernet.*PROVIDER:(Provider1|Provider2).*Inbound 5m Traffic"
+    calculation: 95th_percentile
+    time_range: 30d
+  group1_uptime:
+    hostgroup: Hostgroup1
+    trends:
+      use_trends: true
+      value: value_avg
+    aggregation:
+      type: hostgroup
+      group: Hostgroup1
+    hosts: ".*"
+    item: "^SSH Access$"
+    calculation: avg
+    time_range: 30d
+    use_trends: true
+  group2_uptime:
+    hostgroup: Hostgroup2
+    trends:
+      use_trends: true
+      value: value_avg
+    aggregation:
+      type: hostgroup
+      group: Hostgroup2
+    hosts: ".*"
+    item: "^ICMP Ping$"
+    calculation: avg
+    time_range: 30d

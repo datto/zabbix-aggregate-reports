@@ -1,0 +1,4 @@
+zabbix:
+  url: "https://zabbix/api_jsonrpc.php"
+  user:
+  password:
