@@ -341,9 +341,7 @@ class ZabbixQuery(object):
                 else:
                     history_output[grouping][itemname] = {"data": [value]}
             else:
-                history_output[grouping] = {}
-                history_output[grouping][itemname] = {"data": [value]}
-
+                history_output[grouping] = {itemname: {"data": [value]}}
         return history_output
 
     def _percent_calc(self, data, percentage):
